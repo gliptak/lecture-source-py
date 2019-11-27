@@ -55,7 +55,7 @@ settings include
 
 * the distribution of city sizes (:cite:`rozenfeld2011area`, :cite:`gabaix2016power`).
 
-These heavy tails turn out to be important for our understanding economic outcomes and their impact.
+These heavy tails turn out to be important for our understanding of economic outcomes and their impacts.
 
 As one example, the heaviness of the tail in the wealth distribution is one
 natural measure of inequality. 
@@ -263,7 +263,7 @@ Classifying Tail Properties
 To keep our discussion precise, we need some definitions concerning tail
 properties.  
 
-We will focus our attention on the right hand tails of
+We will focus our attention on the right-hand tails of
 nonnegative random variables and their distributions.  
 
 The definitions for
@@ -297,11 +297,11 @@ A nonnegative random variable :math:`X` is **light-tailed** if its distribution 
 
 One can show that if :math:`X` is light-tailed, then all of its moments are finite.
 
-The contrapositive is that if some moment is infinite, then :math:`X` is heavy-tailed.
+The contrapositive is that if any of its moments is infinite, then :math:`X` is heavy-tailed.
 
 The latter condition is not necessary, however. 
 
-* Example: the lognormal distribution is heavy-tailed but every moment is finite.
+* Example: the lognormal distribution is heavy-tailed but its every moment is finite.
 
 
 Pareto Tails
@@ -321,9 +321,9 @@ Evidently :eq:`plrt` implies the existence of positive constants :math:`b` and :
 
 The implication is that :math:`\mathbb P\{X > x\}` converges to zero no faster than :math:`x^{-\alpha}`.  
     
-In some sources, a random variable obeying :eq:`plrt` is said to have a **power law tail**.
+In some sources, a random variable obeying :eq:`plrt` is said to have a **power-law tail**.
 
-The primary example is the **Pareto distribution**, which has distribution
+The primary example is the **Pareto distribution**, which has the distribution
 
 .. math::
     :label: pareto
@@ -341,7 +341,7 @@ for some positive constants :math:`\bar x` and :math:`\alpha`.
 
 It is easy to see that if :math:`X \sim F`, then :math:`\mathbb P\{X > x\}` satisfies :eq:`plrt`.  
 
-Thus, in line with the terminology, a Pareto distributed random variables have a Pareto tail.
+Thus, in line with the terminology, a Pareto distributed random variable has a Pareto tail.
 
 
 Rank-Size Plots
@@ -351,7 +351,7 @@ Rank-Size Plots
 One graphical technique for investigating Pareto tails and power laws is the so-called **rank-size plot**.
 
 This kind of figure plots
-log size against log rank of the population (i.e., location in the population
+log sizes against log ranks of the population (i.e., location in the population
 when sorted from smallest to largest).  
 
 Often just the largest 5 or 10\% of observations are plotted. 
@@ -362,11 +362,11 @@ A discussion of why this occurs can be found in :cite:`nishiyama2004estimation`.
 
 The figure below provides one example, using simulated data.
 
-The rank-size plots shows draws from three different distributions: folded normal, chi squared with 1 degree of freedom and Pareto.  
+The rank-size plots shows draws from three different distributions: folded normal, chi-squared with 1 degree of freedom and Pareto.  
 
 In each case, the largest 5\% of 1,000 draws are shown.  
 
-The Pareto sample produces a straight line, while the line produced by the other samples is concave.  
+The Pareto sample produces a straight line, while the lines produced by other samples are concave.  
 
 .. _rank_size_fig1:
 
