@@ -64,16 +64,16 @@ The McCall Model
 .. index::
     single: Models; McCall
 
-An unemployed agent receives in each period a job offer at wage :math:`w_t`.
+An unemployed agent receives in each period a job offer at a wage :math:`w_t`.
 
-The wage offer is a nonnegative function of some underlying state:
+The wage offer is a nonnegative function of some underlying states:
 
 .. math::
 
     w_t = w(s_t) \quad \text{where } \; s_t \in \mathbb{S}
 
-Here you should think of state process :math:`\{s_t\}` as some underlying, unspecified
-random factor that impacts on wages.
+Here you should think of the state process :math:`\{s_t\}` as some underlying, unspecified
+random factors that impact on wages.
 
 (Introducing an exogenous stochastic state process is a standard way for
 economists to inject randomness into their models.) 
@@ -92,9 +92,9 @@ We assume for simplicity that
 
 At time :math:`t`, our agent has two choices:
 
-#. Accept the offer and work permanently at constant wage :math:`w_t`.
+#. Accept the offer and work permanently at a constant wage :math:`w_t`.
 
-#. Reject the offer, receive unemployment compensation :math:`c`, and reconsider next period.
+#. Reject the offer, receive unemployment compensation :math:`c`, and reconsider these two choices next period.
 
 The agent is infinitely lived and aims to maximize the expected discounted
 sum of earnings
@@ -105,7 +105,7 @@ sum of earnings
 
 The constant :math:`\beta` lies in :math:`(0, 1)` and is called a **discount factor**.
 
-The smaller is :math:`\beta`, the more the agent discounts future utility relative to current utility.
+The smaller :math:`\beta` is, the more the agent discounts future utility relative to current utility.
 
 The variable  :math:`y_t` is income, equal to
 
@@ -113,7 +113,7 @@ The variable  :math:`y_t` is income, equal to
 
 * unemployment compensation :math:`c` when unemployed
 
-The agent is assumed to know that :math:`\{s_t\}` is IID with common
+The agent is assumed to know that :math:`\{s_t\}` is IID with a common
 distribution :math:`q` and can use this when computing expectations.
 
 
@@ -154,9 +154,9 @@ to states.
 
 To this end, let :math:`v^*(s)` be the total lifetime *value* accruing to an
 unemployed worker who enters the current period unemployed when the state is
-:math:`s \in \mathbb{S}`
+:math:`s \in \mathbb{S}`.
 
-In particular, the agent has wage offer :math:`w(s)` in hand.
+In particular, the agent has a wage offer :math:`w(s)` in hand.
 
 More precisely, :math:`v^*(s)` denotes the value of the objective function
 :eq:`objective` when an agent in this situation makes *optimal* decisions now
@@ -188,14 +188,14 @@ ubiquitous in economic dynamics and other fields involving planning over time.
 
 The intuition behind it is as follows:
 
-* the first term inside the max operation is the lifetime payoff from accepting current offer :math:`w = w(s)`, since
+* the first term inside the max operation is the lifetime payoff from accepting the current offer :math:`w = w(s)`, since
 
 .. math::
     w + \beta w + \beta^2 w + \cdots = \frac{w}{1 - \beta}
 
 * the second term inside the max operation is the **continuation value**, which is the lifetime payoff from rejecting the current offer and then behaving optimally in all subsequent periods
 
-If we optimize and pick the best of these two options, we obtain maximal lifetime value from today, given current state :math:`s`.
+If we optimize and pick the best of these two options, we obtain maximal lifetime value from today, given the current state :math:`s`.
 
 But this is precisely :math:`v^*(s)`, which is the l.h.s. of :eq:`odu_pv`.
 
@@ -207,10 +207,10 @@ The Optimal Policy
 Suppose for now that we are able to solve :eq:`odu_pv` for the unknown
 function :math:`v^*`.
 
-Once we have this function in hand we can behave optimally (i.e., make the
+Once we have this function in hand, we can behave optimally (i.e., make the
 right choice between accept and reject).
 
-All we have to do is select the maximal choice on the r.h.s. of :eq:`odu_pv`.
+All we have to do is to select the maximal choice on the r.h.s. of :eq:`odu_pv`.
 
 The optimal action is best thought of as a **policy**, which is, in general, a map from
 states to actions.
@@ -309,7 +309,7 @@ This algorithm returns an arbitrarily good approximation to the true solution
 to :eq:`odu_pv2`, which represents the value function.
 
 (Arbitrarily good means here that the approximation converges to the true
-solution as the tolerance goes to zero)
+solution as the tolerance goes to zero.)
 
 
 The Fixed Point Theory
@@ -332,8 +332,8 @@ itself via
     \text{for } i = 1, \ldots, n
 
 
-(A new vector :math:`Tv` is obtained from given vector :math:`v` by evaluating
-the r.h.s. at each :math:`i`)
+(A new vector :math:`Tv` is obtained from a given vector :math:`v` by evaluating
+the r.h.s. at each :math:`i`.)
 
 One can show that the conditions of the Banach contraction mapping theorem are
 satisfied by :math:`T` as a self-mapping on :math:`\mathbb R^n`.
@@ -385,7 +385,7 @@ For the dynamic programming component,
 we are going to use Numba to accelerate our code (see, in particular, the
 discussion of ``@jitclass`` in :doc:`our lecture on Numba <numba>`).
 
-The following helps Numba by providing some type information about the data we need.
+The following helps Numba by providing some types of information about the data we need.
 
 .. code-block:: python3
 
@@ -396,7 +396,7 @@ The following helps Numba by providing some type information about the data we n
         ('q', float64[:])    # q[i] = probability of state i
     ]
 
-Here's a class that stores the data and the right hand side of the Bellman
+Here's a class that stores the data and the right-hand side of the Bellman
 equation.
 
 Default parameter values are embedded in the class.
@@ -424,7 +424,7 @@ Default parameter values are embedded in the class.
 
 
 Based on these defaults, let's try plotting a sequence of value functions,
-starting from guess :math:`v` given by :math:`v(i) = w(i) / (1 - β)`.
+starting from a guess :math:`v` given by :math:`v(i) = w(i) / (1 - β)`.
 
 Here's a function to implement this:
 
@@ -467,10 +467,10 @@ the algorithm above generates.
 
 Our initial guess :math:`v` is the value of accepting at every given wage.
 
-Here's more serious iteration effort, that continues until measured deviation
+Here's a more serious iteration effort that continues until measured deviation
 between successive iterates is below `tol`.
 
-We'll be using JIT compilation via Numba to turbo charge our loops
+We'll be using JIT compilation via Numba to turbocharge our loops
 
 .. code-block:: python3
 
@@ -697,12 +697,12 @@ Compute the average duration of unemployment when :math:`\beta=0.99` and
 
     ``c_vals = np.linspace(10, 40, 25)``
 
-That is, start the agent off as unemployed, computed their reservation wage
+That is, start the agent off as unemployed, compute their reservation wage
 given the parameters, and then simulate to see how long it takes to accept.
 
 Repeat a large number of times and take the average.
 
-Plot mean unemployment duration as a function of :math:`c` in ``c_vals``.
+Plot the mean unemployment duration as a function of :math:`c` in ``c_vals``.
 
 
 Solutions
