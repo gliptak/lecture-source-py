@@ -22,7 +22,7 @@ About Python
 Overview
 ============
 
-In this lecture we will
+In this lecture, we will
 
 * Outline what Python is
 * Showcase some of its abilities
@@ -41,7 +41,7 @@ What's Python?
 
 `Python <https://www.python.org>`_ is a general-purpose programming language conceived in 1989 by Dutch programmer `Guido van Rossum <https://en.wikipedia.org/wiki/Guido_van_Rossum>`_.
 
-Python is free and open source, with development coordinated through the `Python Software Foundation <https://www.python.org/psf/>`_.
+Python is free and open-source, with development coordinated through the `Python Software Foundation <https://www.python.org/psf/>`_.
 
 Python has experienced rapid adoption in the last decade and is now one of the most popular programming languages.
 
@@ -134,7 +134,7 @@ Syntax and Design
 
 One nice feature of Python is its elegant syntax --- we'll see many examples later on.
 
-Elegant code might sound superfluous but in fact it's highly beneficial because it makes the syntax easy to read and easy to remember.
+Elegant code might sound superfluous, but in fact, it's highly beneficial because it makes the syntax easy to read and easy to remember.
 
 Remembering how to read from files, sort dictionaries and other such routine tasks means that you don't need to break your flow in order to hunt down correct syntax.
 
@@ -202,7 +202,7 @@ Now let's take the inner product
 
 The number you see here might vary slightly but it's essentially zero.
 
-(For older versions of Python and NumPy you need to use the `np.dot <http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html>`_ function)
+(For older versions of Python and NumPy, you need to use the `np.dot <http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html>`_ function)
 
 
 
@@ -335,7 +335,7 @@ and calculate limits, derivatives and integrals
 
 The beauty of importing this functionality into Python is that we are working within a fully fledged programming language.
 
-Can easily create tables of derivatives, generate LaTeX output, add it to figures, etc., etc.
+We can easily create tables of derivatives, generate LaTeX output, add it to figures, etc., etc.
 
 
 Statistics
