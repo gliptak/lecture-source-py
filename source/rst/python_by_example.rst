@@ -239,27 +239,35 @@ Here's a version that illustrates loops and Python lists.
 
 .. code-block:: python3
 
+    # Part 1
+    import numpy as np
+    import matplotlib.pyplot as plt
+    %matplotlib inline
+
+    # Part 2
     ts_length = 100
     ϵ_values = []   # Empty list
 
+    # Part 3
     for i in range(ts_length):
         e = np.random.randn()
         ϵ_values.append(e)
 
+    # Part 4
     plt.plot(ϵ_values)
     plt.show()
 
 In brief,
 
-* The first pair of lines ``import`` functionality as before.
+* The first pair of lines in part 1 ``import`` functionality as before.
 
-* The next line sets the desired length of the time series.
+* The first line in part 2 sets the desired length of the time series.
 
-* The next line creates an empty *list* called ``ϵ_values`` that will store the :math:`\epsilon_t` values as we generate them.
+* The second line in part 2 creates an empty *list* called ``ϵ_values`` that will store the :math:`\epsilon_t` values as we generate them.
 
-* The next three lines are the ``for`` loop, which repeatedly draws a new random number :math:`\epsilon_t` and appends it to the end of the list ``ϵ_values``.
+* Three lines in part 3 are the ``for`` loop, which repeatedly draws a new random number :math:`\epsilon_t` and appends it to the end of the list ``ϵ_values``.
 
-* The last two lines generate the plot and display it to the user.
+* Two lines in part 4 generate the plot and display it to the user.
 
 
 Let's study some parts of this program in more detail.
