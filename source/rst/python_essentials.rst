@@ -295,7 +295,7 @@ Recall that Python maintains a concept of the present working directory (pwd) th
 
     %pwd
 
-If a path is not specified, then this is where Python writes to.
+If a path is not specified, then this is where Python writes.
 
 We can also use Python to read the contents of ``newline.txt`` as follows
 
@@ -724,7 +724,7 @@ After running this code, the docstring is available
         return x**2
 
 
-With one question mark we bring up the docstring, and with two we get the source code as well.
+With one question mark, we bring up the docstring, and with two, we get the source code as well.
 
 
 
@@ -758,7 +758,7 @@ The SciPy library has a function called ``quad`` that will do this calculation f
 
 The syntax of the ``quad`` function is ``quad(f, a, b)`` where ``f`` is a function and ``a`` and ``b`` are numbers.
 
-To create the function :math:`f(x) = x^3` we can use ``lambda`` as follows
+To create the function :math:`f(x) = x^3`, we can use ``lambda`` as follows
 
 
 .. code-block:: python3
@@ -789,7 +789,7 @@ argument is passed in ``name=argument`` syntax.
 This is called a *keyword argument*, with ``label`` being the keyword.
 
 Non-keyword arguments are called *positional arguments*, since their meaning
-is determined by order
+is determined by the order
 
 * ``plot(x, 'b-', label="white noise")`` is different from ``plot('b-', x, label="white noise")``
 
@@ -840,7 +840,7 @@ In programming, as in mathematics, the opposite is true
 
 In Python, the standard style is set out in `PEP8 <https://www.python.org/dev/peps/pep-0008/>`_.
 
-(Occasionally we'll deviate from PEP8 in these lectures to better match mathematical notation)
+(Occasionally we'll deviate from PEP8 in these lectures to better match mathematical notations)
 
 
 
@@ -935,7 +935,7 @@ alternatives for interpolation and function approximation.
 
 Nevertheless, let's write our own function approximation routine as an exercise.
 
-In particular, without using any imports, write a function ``linapprox`` that takes as arguments
+In particular, without using any import, write a function ``linapprox`` that takes as arguments
 
 * A function ``f`` mapping some interval :math:`[a, b]` into :math:`\mathbb R`.
 
