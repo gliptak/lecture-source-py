@@ -17,7 +17,7 @@ Overview
 
 In this lecture, we're going to study a simple optimal growth model with one agent.
 
-The model is a version of the standard one sector infinite horizon growth model studied in
+The model is a version of the standard one sector infinite horizon growth model studied in:
 
 * :cite:`StokeyLucas1989`, chapter 2
 
@@ -44,12 +44,12 @@ Code
 
 Regarding code, our implementation in this lecture will focus on clarity and flexibility.
 
-Both of these things are nice, particularly for those readers still trying to understand
+Both of these things are helpful, particularly for those readers still trying to understand
 the material, but they do cost us some speed --- as you will
 see when you run the code.
 
 In the :doc:`next lecture <optgrowth_fast>` we will sacrifice some of this
-clarity and flexibility in order to accelerate our code with just-in-time compilation.
+clarity and flexibility in order to accelerate our code with just-in-time (JIT) compilation.
 
 Let's start with some imports:
 
@@ -80,7 +80,7 @@ The resulting capital stock, denoted here by :math:`k_{t+1}`, will then be used 
 
 Production is stochastic, in that it also depends on a shock :math:`\xi_{t+1}` realized at the end of the current period.
 
-Next period output is
+Next period output is:
 
 
 .. math::
@@ -90,7 +90,7 @@ Next period output is
 
 where :math:`f \colon \mathbb R_+ \to \mathbb R_+` is called the production function.
 
-The resource constraint is
+The resource constraint is:
 
 .. math::
     :label: outcsdp0
@@ -104,7 +104,7 @@ and all variables are required to be nonnegative.
 Assumptions and Comments
 ------------------------
 
-In what follows,
+In what follows:
 
 * The sequence :math:`\{\xi_t\}` is assumed to be IID.
 
@@ -151,7 +151,7 @@ where
 
 In :eq:`og_conse` we are assuming that the resource constraint :eq:`outcsdp0` holds with equality --- which is reasonable because :math:`u` is strictly increasing and no output will be wasted at the optimum.
 
-In summary, the agent's aim is to select a path :math:`c_0, c_1, c_2, \ldots` for consumption that is
+In summary, the agent's aim is to select a path :math:`c_0, c_1, c_2, \ldots` for consumption that is:
 
 #. nonnegative,
 
@@ -163,7 +163,7 @@ In summary, the agent's aim is to select a path :math:`c_0, c_1, c_2, \ldots` fo
    observable outcomes, not on future outcomes such as :math:`\xi_{t+1}`.
 
 
-In the present context
+In the present context:
 
 * :math:`y_t` is called the *state* variable --- it summarizes the "state of the world" at the start of each period.
 
@@ -192,7 +192,7 @@ For dynamic programming problems such as this one (in fact for any `Markov decis
 In other words, the current state :math:`y_t` provides a sufficient statistic
 for the history in terms of making an optimal decision today.
 
-This is quite intuitive but if you wish you can find proofs in texts such as :cite:`StokeyLucas1989` (section 4.1).
+This is quite intuitive, but if you wish you can find proofs in texts such as :cite:`StokeyLucas1989` (section 4.1).
 
 Hereafter we focus on finding the best Markov policy.
 
@@ -317,7 +317,7 @@ As shown in `EDTC <http://johnstachurski.net/edtc.html>`_, theorem 10.1.11 and a
 
 In other words, :eq:`fpb30` holds when :math:`v=v^*`.
 
-The intuition is that maximal value from a given state can be obtained by optimally trading off
+The intuition is that maximal value from a given state can be obtained by optimally trading off:
 
 * current reward from a given action, vs
 
@@ -378,7 +378,7 @@ How, then, should we compute the value function?
 
 One way is to use the so-called **Bellman operator**.
 
-(An operator is a map that sends functions into functions)
+(An operator is a map that sends functions into functions.)
 
 The Bellman operator is denoted by :math:`T` and defined by
 
@@ -433,9 +433,9 @@ continuous bounded functions on :math:`\mathbb R_+` under the supremum distance
 
 See  `EDTC <http://johnstachurski.net/edtc.html>`__, lemma 10.1.18.
 
-Hence it has exactly one fixed point in this set, which we know is equal to the value function.
+Hence, it has exactly one fixed point in this set, which we know is equal to the value function.
 
-It follows that
+It follows that:
 
 * The value function :math:`v^*` is bounded and continuous.
 
@@ -450,7 +450,7 @@ We also know that a feasible policy is optimal if and only if it is :math:`v^*`-
 It's not too hard to show that a :math:`v^*`-greedy policy exists
 (see  `EDTC <http://johnstachurski.net/edtc.html>`__, theorem 10.1.11 if you get stuck).
 
-Hence at least one optimal policy exists.
+Hence, at least one optimal policy exists.
 
 Our problem now is how to compute it.
 
@@ -490,7 +490,7 @@ Let's now look at computing the value function and the optimal policy.
 We will use fitted value function iteration, which was described in detail in
 a :doc:`previous lecture <mccall_fitted_vfi>`.
 
-The algorithm will be
+The algorithm will be:
 
 .. _fvi_alg:
 
@@ -594,7 +594,7 @@ right hand side of the Bellman equation :eq:`fpb30`.
 In the second last line we are using linear interpolation.
 
 In the last line, the expectation in :eq:`fcbell20_optgrowth` is
-computed via Monte Carlo, using the approximation
+computed via the Monte Carlo method, using the approximation
 
 .. math::
 
@@ -614,7 +614,7 @@ The Bellman Operator
 
 The next function implements the Bellman operator.
 
-(We could have added it as a method to the ``OptimalGrowthModel`` class but we
+(We could have added it as a method to the ``OptimalGrowthModel`` class, but we
 prefer small classes rather than monolithic ones for this kind of
 numerical work.)
 
@@ -679,7 +679,7 @@ and optimal consumption policy
 It is valuable to have these closed-form solutions because it lets us check
 whether our code works for this particular case.
 
-In Python, the functions above can be expressed as
+In Python, the functions above can be expressed as:
 
 .. code-block:: python3
 
@@ -716,7 +716,7 @@ solution :math:`v^*` in this case.
 
 In theory, since :math:`v^*` is a fixed point, the resulting function should again be :math:`v^*`.
 
-In practice, we expect some small numerical error
+In practice, we expect some small numerical error:
 
 .. code-block:: python3
 
@@ -763,7 +763,7 @@ The initial condition we'll start with is, somewhat arbitrarily, :math:`v(y) = 5
     plt.show()
 
 
-The figure shows
+The figure shows:
 
 #. the first 36 functions generated by the fitted value function iteration algorithm, with hotter colors given to higher iterates
 
