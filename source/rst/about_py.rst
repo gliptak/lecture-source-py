@@ -171,6 +171,13 @@ This section briefly showcases some examples of Python for scientific programmin
 
 * All of these topics will be covered in detail later on.
 
+In addition to what's in Anaconda, this lecture uses the  library:
+
+.. code-block:: ipython
+  :class: hide-output
+
+  !pip install --upgrade quantecon
+
 
 Numerical Programming
 ------------------------
